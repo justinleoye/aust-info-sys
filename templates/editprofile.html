@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% set page_title="EditProfile" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h4>帐号基本信息</h4>
+            <hr class="featurette-divider">
+            <form class="form-horizontal" role="form" method="post">
+                <input type="hidden" value="{{ user.userid }}" name="ownerid">
+                {% if email_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputEmail">Email</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">方便您找回秘密</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputEmail">Email</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{email_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if qq_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputQQ">QQ号</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">方便买家联系您</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputQQ">手机号</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{qq_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="form-group-group">
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>保存</button> 
+                        </div>
+                        <div class="col-md-2 col-md-offset-2">
+                            <a href="/profile"><button class="btn btn-inverse"><span class="glyphicon glyphicon-remove"></span>取消</button></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!--row-fluid-->
+</div><!--container-fluid-->
+{% endblock content %}

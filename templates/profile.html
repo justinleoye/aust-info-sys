@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% set page_title="Profile" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h4>帐号基本信息</h4>
+            <hr class="featurette-divider">
+            <div class="col-md-12">
+                <div class="col-md-3 col-md-offset-9">
+                    <div class="col-md-6">
+                        <a href="/editprofile"><button class="btn btn-warning">编辑资料</button></a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/delacount"><button class="btn btn-danger">注销帐户</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-user"></span> 用户名:{{ user.username }}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-envelope"></span> Email:{{ user.email }}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-globe"></span> QQ号:{{ user.qq }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--container-fluid-->
+{% endblock content %}

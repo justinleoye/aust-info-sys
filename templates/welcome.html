@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% set page_title="Welcome" %}
+{% set active_page="" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2>Welcome, {{user.username}}!</h2>
+        </div>
+    </div>
+</div>
+{% endblock content %}

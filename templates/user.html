@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% set page_title="User Info" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="span10 offset2">
+            {% if search_error == '200' %}
+            <div class="row">
+                <h4>基本信息</h4>
+                <hr class="featurette-divider">
+                <div class="span10"><i class="icon-user"></i><span class="label label-info">用户名:{{ owner.username }}</span></div>
+                <div class="span10"><i class="icon-envelope"></i><span class="label label-info">Email:{{ owner.email }}</span></div>
+                <div class="span10"><i class="icon-globe"></i><span class="label label-info">QQ号:{{ owner.qq }}</span></div>
+            </div>
+            {% elif search_error == '616' %}
+            <div class="row">
+                <h4>页面出错</h4>
+                <hr class="featurette-divider">
+                <div class="span10">
+                    <div class="alert">
+                        <strong>Oops! </strong>没有找到该用户！
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+                <h4>页面出错</h4>
+                <hr class="featurette-divider">
+                <div class="span10">
+                    <div class="alert">
+                        <strong>Oops! </strong>出错了！
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div><!--container-fluid-->
+{% endblock content %}

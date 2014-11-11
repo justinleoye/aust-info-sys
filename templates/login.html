@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set page_title="Login" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h4>登录</h4>
+            <hr class="featurette-divider">
+            <form class="form-horizontal" role="form" method="post">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputUsername">Email</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputPassword">密 码</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                {% if error =='' %}
+                <div class="form-group has-error">
+                    <div class="col-md-5 col-md-offset-2">
+                        <span class="help-block error"></span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <div class="col-md-5 col-md-offset-2">
+                        <span class="help-block error">{{error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        <span class="help-inline text-right">还没有帐号？ <a href="/signup">立即注册</a></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

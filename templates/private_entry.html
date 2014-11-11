@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% set page_title="产品录入" %}
+{% set active_page="" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h4>私人定制-产品录入</h4>
+            <hr class="featurette-divider">
+            <form class="form-horizontal" role="form" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputProductName">产品名称</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="product_name" value="{{product_name}}" id="inputProductName" placeholder="输入产品名称">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputProductCountRemain">剩余产品量</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="product_count_remain" value="{{product_count_remain}}" id="inputProductCountRemain" placeholder="输入剩余产品量">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputFromArea">出发地区</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="from_area" value="{{from_area}}" id="inputFromArea" placeholder="输入出发地区">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputDestinationArea">目的地</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="destination_area" value="{{destination_area}}" id="inputDestinationArea" placeholder="输入目的地">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputStartTime">旅游开始时间</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="start_time" value="{{start_time}}" id="inputStartTime" placeholder="输入旅游开始时间">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputTravelDuration">旅游持续时间</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="travel_duration" value="{{travel_duration}}" id="inputTravelDuration" placeholder="输入旅游持续时间">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputEndTime">旅游结束时间</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="end_time" value="{{end_time}}" id="inputEndTime" placeholder="输入旅游结束时间">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputSubject">产品主题</label>
+                            <div class="col-md-8">
+                                <div id="inputSubject">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="subject" checked="checked">我只
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="subject" checked="checked">是测试
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="subject" checked="checked">一下
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputRecommendReasons">产品推荐理由</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="recommend_reasons" value="{{recommend_reasons}}" id="inputRecommendReasons" placeholder="输入产品推荐理由">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                {% macro -%}
+                
+                
+                {% if terms_error == '' %}
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="checkboxTerms" name="terms" checked="checked">我已经认真阅读并同意《<a href="/terms">使用协议</a>》。
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="checkboxTerms" name="terms"><span class="help-inline error">您还没有认真阅读并同意《<a href="/terms">使用协议</a>》。</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary">注册</button>
+                        <span class="help-inline text-right">已经有一个帐号？ <a href="/login">立即登录</a></span>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

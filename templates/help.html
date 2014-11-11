@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% set page_title="Help" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <section id="help">
+                <div class="page-header">
+                    <h4>帮助</h4>
+                </div>
+                <h5 id="browser">浏览器版本问题</h5>
+                <div class="alert alert-warning">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     <strong>提醒!</strong>您的浏览器使用的是IE9.0以下版本内核，版本太低，存在CSS渲染Bug，影响视觉体验，请升级到IE9.0以上。亲，也许你用的浏览器是搜狗，360神马的，但是内核还是用的IE哟！<br/>
+                     <strong>推荐浏览器：<a href="http://www.google.cn/intl/zh-CN/chrome/" target="_blank">Chrome</a>，<a href="http://www.mozilla.org/zh-CN/firefox/new/" target="_blank">firefox</a>，<a href="http://windows.microsoft.com/zh-cn/internet-explorer/ie-9-worldwide-languages" target="_blank">IE 9.0</a>,<a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">IE 10.0</a></strong>
+                </div>
+                
+                <h5>获取更多帮助</h5>
+                <ul class="list-group">
+                    <li class="list-group-item">我们的联系方式有：
+                        <ol>
+                                <li><span class="glyphicon glyphicon-envelope"></span> 邮箱：justinleoye@gmail.com</li>
+                        </ol>
+                    </li>
+                    <li class="list-group-item">地址:
+                        <ol>
+                            <li><span class="glyphicon glyphicon-map-marker"></span> 地址：北京邮电大学 软件学院</li>
+                        </ol>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% set page_title="Signup" %}
+{% set active_page="" %}
+{% block content %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h4>注册帐号</h4>
+            <hr class="featurette-divider">
+            <form class="form-horizontal" role="form" method="post">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputUsername">用户类型</label>
+                    <div class="col-md-5">
+                        {% set user_types = [['student','学生'],['teacher','老师']] %}
+                        
+                        <select class="form-control" name="usertype">
+                        {% for user_type,user_type_caption in user_types %}
+                            <option value="{{ user_type }}" {% if usertype==user_type or (usertype=="" and loop.first) %} selected="selected" {% endif %}>{{ user_type_caption }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">请选择要注册的用户类型</span>
+                    </div>
+                </div>
+
+                {% if username_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputUsername">用户名</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="username" value="{{username}}" id="inputUsername" placeholder="输入用户名">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">用户名是3到20个英文字符、数字或者“-”</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputUsername">用户名</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="username" value="{{username}}" id="inputUsername" placeholder="输入用户名">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{username_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+        
+                {% if password_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputPassword">密 码</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="输入密码">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">至少3个字符，最多20个字符，区分大小写</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputPassword">密 码</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="输入密码">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{password_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if v_password_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputVerifyPassword">确认密码</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="verify" id="inputVerifyPassword" placeholder="确认输入密码">
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputVerifyPassword">确认密码</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="verify" id="inputVerifyPassword" placeholder="确认输入密码">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{v_password_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if email_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputEmail">Email</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">方便您找回密码</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputEmail">Email</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{email_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if qq_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputQQ">QQ</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">方便我们及时联系您</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputQQ">QQ</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{qq_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if terms_error == '' %}
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="checkboxTerms" name="terms" checked="checked">我已经认真阅读并同意#学生信息管理系统#的《<a href="/terms">使用协议</a>》。
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="checkboxTerms" name="terms"><span class="help-inline error">您还没有认真阅读并同意#学生信息管理系统#的《<a href="/terms">使用协议</a>》。</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary">注册</button>
+                        <span class="help-inline text-right">已经有一个#学生信息管理系统#的帐号？ <a href="/login">立即登录</a></span>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
