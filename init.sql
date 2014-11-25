@@ -21,6 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `usertype` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
   `userpass` varchar(100) NOT NULL,
   `salt` varchar(100) NOT NULL,

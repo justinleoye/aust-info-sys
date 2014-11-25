@@ -23,7 +23,7 @@ render = render_jinja(
 # create_engine(数据库://用户名:密码(没有密码则为空)@主机名:端口/数据库名',echo =True)
 
 ##Local Mysql Db for local test
-MYSQL_DB = 'app_ziyouban'
+MYSQL_DB = 'app_student_sys'
 MYSQL_USER = 'root'
 MYSQL_PASS = 'alexzone'
 MYSQL_HOST = 'localhost'

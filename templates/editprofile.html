@@ -41,12 +41,96 @@
                 </div>
                 {% else %}
                 <div class="form-group has-error">
-                    <label class="col-md-2 control-label" for="inputQQ">手机号</label>
+                    <label class="col-md-2 control-label" for="inputQQ">QQ号</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
                     </div>
                     <div class="col-md-5">
                         <span class="help-block">{{qq_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if id_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputID">身份证号码</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="id" value="{{ id }}" id="inputID" placeholder="输入身份证号码">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputID">身份证号码</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="id" value="{{ id }}" id="inputID" placeholder="输入身份证号码">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{id_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if phone_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputPhone">手机号</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="phone" value="{{ phone }}" id="inputPhone" placeholder="输入手机号">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputPhone">手机号</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="phone" value="{{ phone }}" id="inputPhone" placeholder="输入手机号">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{phone_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if address_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputAddress">家庭地址</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="address" value="{{ address }}" id="inputAddress" placeholder="输入家庭地址">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputAddress">家庭地址</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="address" value="{{ address }}" id="inputAddress" placeholder="输入家庭地址">
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{address_error}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if family_info_error =='' %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputAddress">家庭信息</label>
+                    <div class="col-md-5">
+                        
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group has-error">
+                    <label class="col-md-2 control-label" for="inputAddress">家庭信息</label>
+                    <div class="col-md-5">
+                        
+                    </div>
+                    <div class="col-md-5">
+                        <span class="help-block">{{family_info_error}}</span>
                     </div>
                 </div>
                 {% endif %}
