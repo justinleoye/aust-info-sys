@@ -26,7 +26,25 @@ CREATE TABLE `user` (
   `userpass` varchar(100) NOT NULL,
   `salt` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `qq` varchar(13) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `user_profile`
+-- ----------------------------
+
+DROP TABLE IF EXISTS `user_profile`;
+CREATE TABLE `user_profile` (
+  `userid` int(11) NOT NULL,
+  `identity` varchar(20),
+  `qq` varchar(20),
+  `phone` varchar(20),
+  `address` varchar(200),
+  `family_info` varchar(200),
   PRIMARY KEY (`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

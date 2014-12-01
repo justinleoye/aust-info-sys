@@ -106,27 +106,7 @@
                     </div>
                 </div>
                 {% endif %}
-                {% if qq_error =='' %}
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="inputQQ">QQ</label>
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
-                    </div>
-                    <div class="col-md-5">
-                        <span class="help-block">方便我们及时联系您</span>
-                    </div>
-                </div>
-                {% else %}
-                <div class="form-group has-error">
-                    <label class="col-md-2 control-label" for="inputQQ">QQ</label>
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
-                    </div>
-                    <div class="col-md-5">
-                        <span class="help-block">{{qq_error}}</span>
-                    </div>
-                </div>
-                {% endif %}
+                
                 {% if terms_error == '' %}
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-2">

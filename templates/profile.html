@@ -24,9 +24,7 @@
                     <li class="list-group-item">
                         <span class="glyphicon glyphicon-envelope"></span> Email:{{ user.email }}
                     </li>
-                    <li class="list-group-item">
-                        <span class="glyphicon glyphicon-globe"></span> QQ号:{{ user.qq }}
-                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -38,29 +36,34 @@
             <div class="col-md-8">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-user"></span> 身份证号码: 340XXXXXXXXXXXXXXXXXXXX
+                        <span class="glyphicon glyphicon-user"></span> 身份证号码: {{ identity }}
                     </li>
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-envelope"></span> 手机号： 131XXXXXXXXXX
+                        <span class="glyphicon glyphicon-globe"></span> QQ号:{{ qq }}
                     </li>
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-globe"></span> 家庭住址： XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        <span class="glyphicon glyphicon-envelope"></span> 手机号： {{ phone }}
                     </li>
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-globe"></span> 家庭信息：
+                        <span class="glyphicon glyphicon-map-marker"></span> 家庭住址： {{ address }}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-home"></span> 家庭信息：
                         <table class="table table-hover">
-                            <th>
+                            <tr>
                                 <td>姓名</td><td>关系</td><td>工作单位</td><td>联系方式</td>
-                            </th>
-                            <tr>
-                                <td>XXXX</td><td>父子</td><td>淮南市劳动局</td><td>132XXXXXXXX</td>
                             </tr>
+                        {% if family_info != None %}
+                            {% for item in family_info %}
                             <tr>
-                                <td>XXXX</td><td>父母</td><td>淮南市劳动局</td><td>132XXXXXXXX</td>
+                                <td>{{ item.name }}</td><td>{{ item.relationship }}</td><td>{{ item.work_place }}</td><td>{{ item.contact }}</td>
                             </tr>
+                            {% endfor %}
+                        {% else %}
                             <tr>
-                                <td>XXXX</td><td>兄妹</td><td>淮南市劳动局</td><td>132XXXXXXXX</td>
+                                <td>XX</td><td>XX</td><td>XXXX</td><td>XXXX</td>
                             </tr>
+                        {% endif %}
                         </table>
                     </li>
                 </ul>

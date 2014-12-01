@@ -135,7 +135,7 @@ class HelpHandler(AcountHandler):
 app = web.application(urls, globals())
 app.add_processor(load_sqla)
 
-ziyouban = app.wsgifunc()
+application = app.wsgifunc()
 #application = sae.create_wsgi_app(app.wsgifunc())
 
 if __name__ == "__main__":

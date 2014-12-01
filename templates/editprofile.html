@@ -8,27 +8,6 @@
             <hr class="featurette-divider">
             <form class="form-horizontal" role="form" method="post">
                 <input type="hidden" value="{{ user.userid }}" name="ownerid">
-                {% if email_error =='' %}
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="inputEmail">Email</label>
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
-                    </div>
-                    <div class="col-md-5">
-                        <span class="help-block">方便您找回秘密</span>
-                    </div>
-                </div>
-                {% else %}
-                <div class="form-group has-error">
-                    <label class="col-md-2 control-label" for="inputEmail">Email</label>
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" name="email" value="{{ email }}" id="inputEmail" placeholder="Email">
-                    </div>
-                    <div class="col-md-5">
-                        <span class="help-block">{{email_error}}</span>
-                    </div>
-                </div>
-                {% endif %}
                 {% if qq_error =='' %}
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="inputQQ">QQ号</label>
@@ -36,7 +15,7 @@
                         <input type="text" class="form-control" name="qq" value="{{ qq }}" id="inputQQ" placeholder="输入QQ号">
                     </div>
                     <div class="col-md-5">
-                        <span class="help-block">方便买家联系您</span>
+                        <span class="help-block">方便老师联系您</span>
                     </div>
                 </div>
                 {% else %}
@@ -50,11 +29,11 @@
                     </div>
                 </div>
                 {% endif %}
-                {% if id_error =='' %}
+                {% if identity_error =='' %}
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="inputID">身份证号码</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control" name="id" value="{{ id }}" id="inputID" placeholder="输入身份证号码">
+                        <input type="text" class="form-control" name="identity" value="{{ identity }}" id="inputID" placeholder="输入身份证号码">
                     </div>
                     <div class="col-md-5">
                         <span class="help-block"></span>
@@ -64,7 +43,7 @@
                 <div class="form-group has-error">
                     <label class="col-md-2 control-label" for="inputID">身份证号码</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control" name="id" value="{{ id }}" id="inputID" placeholder="输入身份证号码">
+                        <input type="text" class="form-control" name="identity" value="{{ identity }}" id="inputID" placeholder="输入身份证号码">
                     </div>
                     <div class="col-md-5">
                         <span class="help-block">{{id_error}}</span>
@@ -113,34 +92,71 @@
                     </div>
                 </div>
                 {% endif %}
-                {% if family_info_error =='' %}
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="inputAddress">家庭信息</label>
-                    <div class="col-md-5">
-                        
+                <h4>家庭信息</h4>
+                <input type="text" name='family_info' value="{{ family_info |escape }}"hidden="hidden">
+                <div class="family_info">
+                {% if family_info != None %}
+                    {% for item in family_info %}
+                    <div class="family_info_item">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <input class="form-control" value="{{ item.name |escape }}" placeholder="姓名">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="{{ item.relationship }}" placeholder="关系">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="{{ item.work_place }}" placeholder="工作单位">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="{{ item.contact }}" placeholder="联系方式">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <span class="help-block"></span>
-                    </div>
-                </div>
+                    {% endfor %}
                 {% else %}
-                <div class="form-group has-error">
-                    <label class="col-md-2 control-label" for="inputAddress">家庭信息</label>
-                    <div class="col-md-5">
-                        
+                    <div class="family_info_item">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="姓名">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="关系">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="工作单位">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="联系方式">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <span class="help-block">{{family_info_error}}</span>
-                    </div>
-                </div>
                 {% endif %}
+                    <a data='<div class="family_info_item">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="姓名">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="关系">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="工作单位">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" value="" placeholder="联系方式">
+                            </div>
+                        </div>
+                    </div>' class="btn btn-inverse add-input-item" ><span class="glyphicon glyphicon-plus"></span>添加更多</a>
+                </div>
+                
                 <div class="form-group-group">
                     <div class="row">
                         <div class="col-md-2 col-md-offset-2">
                             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>保存</button> 
                         </div>
                         <div class="col-md-2 col-md-offset-2">
-                            <a href="/profile"><button class="btn btn-inverse"><span class="glyphicon glyphicon-remove"></span>取消</button></a>
+                            <a href="/profile" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-remove"></span>取消</a>
                         </div>
                     </div>
                 </div>
@@ -149,3 +165,7 @@
     </div><!--row-fluid-->
 </div><!--container-fluid-->
 {% endblock content %}
+
+{% block javascript %}
+<script src="/static/js/edit_profile.js"></script>
+{% endblock javascript %}
