@@ -19,6 +19,10 @@
             <div class="col-md-8">
                 <ul class="list-group">
                     <li class="list-group-item">
+                        {% set user_types = {'student':'学生', 'teacher':'老师'} %}
+                        <span class="glyphicon glyphicon-user"></span> 帐号类型: {{ user_types[user.usertype] }}
+                    </li>
+                    <li class="list-group-item">
                         <span class="glyphicon glyphicon-user"></span> 用户名:{{ user.username }}
                     </li>
                     <li class="list-group-item">
